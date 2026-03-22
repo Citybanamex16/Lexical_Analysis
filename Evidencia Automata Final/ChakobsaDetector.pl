@@ -69,6 +69,51 @@ navegation(State,[]):-
 
 
 
+%Banco de Pruebas.
+% Formato -> % test_dato(Palabra, ResultadoEsperado).
+test_dato('chaumas', true). 
+test_dato('chaumurky', true). 
+test_dato('cherem', true). 
+test_dato('chouhada', true). 
+test_dato('cielago', true). 
+test_dato('charam', false). 
+test_dato('chaumass', false). 
+test_dato('chherem', false). 
+test_dato('cielego', false). 
+test_dato('cheuhede', false). 
+test_dato('', false). 
+test_dato('CCCC', false). 
+test_dato('Chaumas', true). 
+test_dato('Chaumurky', true). 
+test_dato('Cherem', true). 
+test_dato('Chouhada', true). 
+test_dato('Cielago', true). 
+
+
+% --- EJECUCIÓN de Pruebas.---
+run_test :-
+    format('~n=== INICIANDO PRUEBAS DEL SISTEMA CHAKOBSA ===~n~n'),
+    forall(test_dato(Palabra, Esperado), (
+        (test_silencioso(Palabra) -> Resultado = true ; Resultado = false),
+        
+        (Resultado == Esperado -> Status = 'PASÓ' ; Status = 'FALLÓ'),
+        
+        format('Palabra: ~w | Esperado: ~w | Obtuvimos: ~w | [~w]~n', 
+               [Palabra, Esperado, Resultado, Status])
+    )),
+    format('~n=== FIN DE LAS PRUEBAS ===~n').
+
+% Predicado auxiliar que solo navega (sin imprimir mensajes estéticos)
+test_silencioso(P) :-
+   atom_chars(P,L),
+	start_state(S),
+    navegation(S, L).
+
+
+
+
+
+
 
 
 
