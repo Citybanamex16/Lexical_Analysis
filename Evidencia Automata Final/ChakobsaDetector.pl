@@ -2,8 +2,6 @@
 start_state(qa).
 
 
-
-
 %Transition list
 %transition(estadoOrigen, 'caracter', estadorDestino).
 transition(qa,'C',qb).
@@ -54,7 +52,7 @@ chakobsa(P):-
 	(navegation(S,L) -> 
 	write("¡Bi-la Kaifa! palabra sagrada del Chakobsa")
 	;
-	write('lengua de espías o simples extranjeros ¡No es Chakobsa!')
+	write('lengua de espías o extranjeros ¡No es Chakobsa!')
 	).						
 	
 
@@ -94,7 +92,7 @@ test_dato('Cielago', true).
 run_test :-
     format('~n=== INICIANDO PRUEBAS DEL SISTEMA CHAKOBSA ===~n~n'),
     forall(test_dato(Palabra, Esperado), (
-        (test_silencioso(Palabra) -> Resultado = true ; Resultado = false),
+        (test_noprint(Palabra) -> Resultado = true ; Resultado = false),
         
         (Resultado == Esperado -> Status = 'PASÓ' ; Status = 'FALLÓ'),
         
@@ -104,7 +102,7 @@ run_test :-
     format('~n=== FIN DE LAS PRUEBAS ===~n').
 
 % Predicado auxiliar que solo navega (sin imprimir mensajes estéticos)
-test_silencioso(P) :-
+test_noprint(P) :-
    atom_chars(P,L),
 	start_state(S),
     navegation(S, L).

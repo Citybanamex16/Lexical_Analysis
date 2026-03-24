@@ -17,7 +17,7 @@ This project implements a **lexical detector** using a **Deterministic Finite Au
 | Word | Meaning | Origin |
 |------|---------|--------|
 | `chaumas` | Poison in solid food | Rima |
-| `chaumurky` / `musky` / `murky` | Poison in drink | Ishkal |
+| `chaumurky`| Poison in drink | Ishkal |
 | `cherem` | Brotherhood of hatred | Ishkal |
 | `chouhada` | Purposeful fighters | Ishkal |
 | `cielago` | Bat-like creature *(from older Harmonthepic: ciel "water" + lako "fowl"; likely derived from Spanish murciélago)* | — |
